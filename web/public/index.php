@@ -8,11 +8,14 @@ if (isset($_REQUEST['getBar'])) {
     $result = Foo::getBar();
     print_r($result);
 } elseif (isset($_REQUEST['cacheWarmup'])) {
-    // warm up cache
+    Foo::getBar();
 } else {
     $index = file_get_contents(__DIR__.'/index.html');
     echo $index;
 
     // Delete cache;
-    unlink(ROOT_DIR.'/cache.dat');
+    $cacheFile = ROOT_DIR.'/cache.dat';
+    if (file_exists($cacheFile)) {
+        unlink($cacheFile);
+    }
 }

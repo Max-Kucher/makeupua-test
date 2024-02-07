@@ -1,13 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Cache Warmup and Test</title>
+    <script>
+        function warmUpCache() {
+            fetch('index.php?cacheWarmup=true')
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Cache Warmup Response:', data);
+                    testGetBar();
+                })
+                .catch(error => console.error('Error warming up cache:', error));
+        }
+
+        function testGetBar() {
+            const requestsPerSecond = 100;
+            const interval = 1000 / requestsPerSecond; // Calculate interval in ms
+
+            for (let i = 0; i < requestsPerSecond; i++) {
+                setTimeout(() => {
+                    fetch('index.php?getBar=true')
+                        .then(response => response.text())
+                        .then(data => console.log(`Response ${i + 1}:`, data))
+                        .catch(error => console.error(`Error on request ${i + 1}:`, error));
+                }, i * interval);
+            }
+        }
+
+        // Warm up the cache once the page is loaded
+        window.onload = warmUpCache;
+    </script>
 </head>
 <body>
-    <h1>Test</h1>
+<h1>Cache Warmup and Test</h1>
+<p>Check the console for output.</p>
 </body>
 </html>
