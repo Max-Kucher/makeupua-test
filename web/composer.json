@@ -1,0 +1,19 @@
+{
+    "name": "mkuch/makeupua-test",
+    "description": "Some simple tast task",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Max-Kucher",
+            "email": "mkuchirov@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app\\"
+        }
+    }
+}
