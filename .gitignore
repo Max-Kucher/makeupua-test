@@ -12,6 +12,9 @@ data/
 .env
 web/vendor
 
+# Cache
+web/cache.dat
+
 # PHPStorm
 .idea/**/workspace.xml
 .idea/**/tasks.xml

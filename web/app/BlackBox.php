@@ -2,7 +2,8 @@
 
 namespace App;
 
-class BlackBox {
+class BlackBox implements IBarGetter
+{
     public static function getBar(): array
     {
         sleep(1);

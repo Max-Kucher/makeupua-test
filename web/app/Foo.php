@@ -2,10 +2,10 @@
 
 namespace App;
 
-class Foo
+class Foo implements IBarGetter
 {
     // TODO: оптимізувати загальний час роботи при 100 rps
-    public function getBar()
+    public static function getBar(): array
     {
         $result = Cache::get('bar');
         if ($result !== null) {
