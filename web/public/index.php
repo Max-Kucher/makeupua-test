@@ -1,5 +1,5 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once ROOT_DIR.'/vendor/autoload.php';
 
 echo 1;

@@ -12,7 +12,7 @@ class Foo
             return $result;
         }
 
-        $result = BlackBox::getBar(); // 1s
+        $result = BlackBox::getBar();
         Cache::put('bar', $result);
 
         return $result;

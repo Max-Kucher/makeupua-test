@@ -7,7 +7,7 @@ namespace App;
  */
 class Cache
 {
-    protected static string $filePath = 'cache.dat';
+    protected static string $filePath = ROOT_DIR.'/cache.dat';
 
     public static function put(string $key, mixed $value, int $duration = 3600): void
     {
